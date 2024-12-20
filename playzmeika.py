@@ -30,7 +30,6 @@ class Game:
 
     # Отрисовка игры
     def draw(self):
-        self.canvas.delete(ALL)
         x_apple, y_apple = self.apple_coords
         self.canvas.create_rectangle(x_apple * 10, y_apple * 10, (x_apple + 1) * 10, (y_apple + 1) * 10, fill="red",
                                      width=0)
@@ -54,7 +53,6 @@ class Game:
             self.set_apple()
         elif [x, y] in self.snake_coords:
             self.snake_coords = []
-        else:
             self.snake_coords.pop()
         self.snake_coords.insert(0, [x, y])
         self.canvas.after(100, self.GAME)
